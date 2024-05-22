@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alifba - Transforming Islamic Learning for Children</title>
+    <style>
+        @font-face {
+            font-family: 'MoreSugar';
+            src: url('fonts/MoreSugar-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'MoreSugar', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1em;
+        }
+
+        nav a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e57cbc;
+        }
+
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: flex-end; /* Align items to the bottom */
+            justify-content: flex-start; /* Align items to the left */
+            padding: 1em 3em; /* Adjust padding to reduce spacing around text */
+            height: 100vh; /* Ensure hero section takes up full viewport height */
+            background: url('home.webp') no-repeat center center; /* Add your background image here */
+            background-size: cover; /* Make sure the background covers the entire hero section */
+            color: white;
+            text-align: left;
+        }
+
+        .hero-text-box {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(191, 143, 253, 1); /* Semi-transparent purple background */
+            padding: 2em;
+            border-radius: 50px;
+            max-height: 250px;
+            max-width: 500px; /* Limit text width */
+        }
+
+        .hero-text h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+        }
+
+        .hero-text p {
+            font-size: 1.25em;
+            margin-bottom: 1em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1em;
+        }
+
+        .download-buttons a {
+            display: inline-block;
+            padding: 1em 2em;
+            background-color: #58cc02; /* Bright green */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-buttons a:hover {
+            background-color: #45a049;
+        }
+
+        .hero img {
+            max-width: 400px;
+            width: 50%;
+            height: auto;
+            border-radius: 15px;
+            margin-left: 2em;
+        }
+
+
+        section {
+            padding: 1em 1em; /* Reduced from 3em to 2em for less vertical space */
+        text-align: center;
+        background-color: #f7f9fc;
+        margin: 0 auto; /* Ensure there's no additional margin between sections */
+        border-radius: 10px; /* Optional: maintain rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+ .about-text p {
+            font-size: 1.25em;
+            margin-bottom: 1em;
+             color: #333;
+/*            text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); /* Add shadow to text */*/
+
+        }
+        .features{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap:wrap;
+            gap: 1em;
+
+        }
+
+        .feature, .step {
+            background-color: white;
+            padding: 2em;
+            border-radius: 50px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+            flex: 1 1 20%;
+            text-align: center;
+            transition: transform 0.5s ease;
+
+        }
+
+        .feature:hover, .step:hover {
+            transform: scale(1.05);
+        }
+
+        .feature img, .step img {
+            width: 50px;
+            height: auto;
+            margin-bottom: .em;
+        }
+
+#how-it-works {
+    background-color: #f9fafc; /* Lighter background for a cleaner look */
+    padding: 2em 0; /* Adjusted padding for better spacing */
+}
+
+.section-title {
+    font-family: 'MoreSugar', cursive; /* ensures the font family is consistent */
+    text-align: center;
+    margin: 1em 0; /* Reduced margin from the top and bottom */
+    font-size: 2em;
+    color: #5271ff; /* This is the color used in your current design */
+}
+
+
+.how-it-works-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px; /* Constrain max width for better alignment */
+    margin: auto; /* Center align the container */
+}
+
+.how-it-works-section {
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadows for depth */
+    margin: .50em; /* Uniform margin for spacing */
+    flex-basis: 45%; /* Adjust this value for tighter fit */
+    display:inline-flex;
+    align-items: center; /* Center alignment of content */
+    padding: 10px; /* Uniform padding inside each section */
+
+}
+
+.how-it-works-section img {
+    width: 30%;
+    max-width: 500px; /* Limiting maximum image width */
+    height: auto;
+    margin-right: 20px; /* Right margin for spacing between text and image */
+    border-radius: 5px; /* Soften edges of images */
+}
+
+.how-it-works-section .text-left, .how-it-works-section .text-right {
+    flex: 1;
+    padding: 0 15px; /* Adjusted padding for text alignment */
+}
+
+.how-it-works-section h2 {
+    font-size: 1.75em;
+    color: #333; /* Darker color for better readability */
+    margin-bottom: 0.5em; /* Space below headings */
+}
+
+.how-it-works-section p {
+    font-size: 1em; /* Adjusted text size for better readability */
+    line-height: 1.6;
+    color: #666; /* Lighter text color for a softer appearance */
+}
+
+.how-it-works-section.reversed {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .how-it-works-section {
+        flex-direction: column;
+        flex-basis: 100%; /* Full width on smaller screens */
+    }
+
+    .how-it-works-section img {
+        margin: 0 auto 20px; /* Center image on smaller screens */
+        width: 50%; /* Larger images on smaller screens */
+    }
+}
+
+
+
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 1em;
+            margin: 0.5em 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact-form button {
+            padding: 1em;
+            background-color: #58cc02;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        .section-title {
+            font-family: 'MoreSugar', cursive;
+            text-align: center;
+            margin-bottom: 2em;
+            font-size: 2em;
+        }
+
+        
+
+
+        /* Scrolling Testimonials */
+.testimonial-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonial-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 300px; /* Adjust based on design */
+    height: 250px; /* Adjust the height as needed */
+    margin: 0 1em;
+    background: #fff;
+    padding: 1em;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center the text horizontally */
+/*    vertical-align: top; /* Ensure testimonials align to the top */*/
+}
+.testimonial img {
+    width: 150px; /* Adjust the width to reduce size */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add some space between the image and the text */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/newlogo.png" alt="Alifba Logo">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#testimonials">Testimonials</a>
+            <!-- <a href="#download">Download</a>
+            <a href="#contact">Contact Us</a> -->
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-text-box">
+            <div class="hero-text">
+                <h1>Faith, Fun, and Learning Combined!</h1>
+      <p>Experience a joyful, interactive, and engaging way for your child to learn about Islam.</p>
+                      <div class="download-buttons">
+                    <a href="#">Download on the App Store</a>
+                    <a href="#">Get it on Google Play</a>
+                </div>
+            </div>
+        </div>
+        <!-- <img src="path/to/illustration.png" alt="Illustration"> -->
+
+    </section>
+      <section id="about">
+        <div class="about-text">
+        <p>At Alifba, we’re dedicated to revitalizing Islamic education for children by making learning an engaging, enjoyable, and deeply personal experience. Our mission is to nurture a generation that is knowledgeable, ethical, and connected to their faith.</p>
+    </section>
+    <section id="features">
+        <h2 class="section-title">Features</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/bitesized.png">
+                <h3>Bite sized Lessons</h3>
+      <p>Engage with short, focused lessons on specific Islamic teachings and practices.</p>            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/gamified.png">
+                <h3>Gamified Learning</h3>
+      <p>Enjoy interactive activities and challenges that make learning about Islam fun.</p>            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/quiz.png">
+                <h3>Various types of interactive quizes</h3>
+                <p>Test your knowledge and boost reasoning with a variety of fun and interactive quizzes. </p>
+            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/audio.png">
+                <h3>Audio lessons throughout</h3>
+                <p>Enhance learning with soothing audio narratives through out each lesson</p>
+            </div>
+             <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/character.png">
+                <h3>Charecter based learning</h3>
+                <p>Connect deeply with captivating character-driven stories that bring Islamic lessons to life.</p>
+            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/happy.png">
+                <h3>Parental involvement</h3>
+                <p>joint goals, celebrating achievements, Strengthen family bonds through shared goals and celebrations of your child’s educational achievements.</p>
+            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/reward.png">
+                <h3>Rewards & Achievments</h3>
+                <p>Celebrate progress with exciting rewards and achievements, from virtual badges to stickers, as milestones are reached</p>
+            </div>
+            <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/avatar.png">
+                <h3>Customizable Avatars for children</h3>
+                <p>Let your child personalize their learning experience with customizable avatars</p>
+            </div>
+             <div class="feature">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/virtualpet.png">
+                <h3>Virtual pet</h3>
+                <p>A virtual pet for the child, he grows up and evolve as the child achieve new milestones</p>
+        </div>
+
+    </section>
+   <section id="how-it-works">
+   <h2 class="section-title">How it works</h2>
+    <div class="how-it-works-container">
+    <section class="how-it-works-section reversed">
+        <div class="text-right">
+            <h2>Experiential Learning</h2>
+            <p>Think, Play, Learn! - Children learn Islamic principles through direct engagement and interactive activities. This includes story based lessons, different styles of quiz formats, mini games, puzzles, etc. and applying Islamic manners in role-play scenarios. The emphasis is on learning through action, allowing chhow-it-works-sectionildren to internalise teachings more effectively.</p>
+        </div>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/experiential.png" alt="App Screenshot">
+    </section>
+    <section class="how-it-works-section">
+        <div class="text-left">
+            <h2>Tailored Educational Journey</h2>
+            <p>Content is curated to cover fundamental Islamic teachings, emphasising core values, beliefs, and practices. From the Five Pillars of Islam to the moral stories of the prophets, Alifba ensures that learners are focused on the most impactful lessons, fostering a deep connection with their faith.</p>
+        </div>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/tailoring.png" alt="App Screenshot">
+    </section>
+    <section class="how-it-works-section reversed">
+        <div class="text-right">
+            <h2>Essential Islamic Teachings</h2>
+            <p>Think, Play, Learn! - Children learn Islamic principles through direct engagement and interactive activities. This includes story based lessons, different styles of quiz formats, mini games, puzzles, etc. and applying Islamic manners in role-play scenarios. The emphasis is on learning through action, allowing children to internalise teachings more effectively.</p>
+        </div>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/syllabus.png" alt="App Screenshot">
+    </section>
+    <section class="how-it-works-section">
+        <div class="text-left">
+            <h2>Intrinsic Motivation</h2>
+            <p>Motivation is cultivated through a rewards system, achievements, and regular encouragement. Features like streaks for daily learning, badges for milestones, and celebratory feedback for completed lessons keep learners engaged and motivated to continue their Islamic education journey.</p>
+        </div>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/motivation.png" alt="App Screenshot">
+    </section>
+    <section class="how-it-works-section reversed">
+        <div class="text-right">
+            <h2>Joyful Learning Experience</h2>
+            <p>The app is designed to make learning a joyous experience. With vibrant graphics, engaging content, and interactive elements like games and puzzles, Alifba turns Islamic education into a delightful activity. The aim is to associate learning with happiness and curiosity, encouraging a lifelong love for acquiring Islamic knowledge.</p>
+        </div>
+        <img src="file:///Users/rimshad/Desktop/Alifba/website/images/joyful.png">
+    </section>
+    </section>
+    
+   
+
+    </section>
+    <section id="testimonials">
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonial-container">
+        <div class="testimonial-track">
+            <div class="testimonial">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"Alifba has made learning about Islam a fun and interactive experience for my children. They love it!" - Parent</p>
+            </div>
+            <div class="testimonial">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"My kids are excited to learn about their faith every day thanks to Alifba. Highly recommended!" - Ahmed</p>
+            </div>
+            <div class="testimonial">
+                 <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"The interactive games and quizzes are a hit with my kids. They are learning so much!" - Fatima</p>
+            </div>
+            <!-- Repeat testimonials to ensure smooth scrolling -->
+            <div class="testimonial">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"Alifba has made learning about Islam a fun and interactive experience for my children. They love it!" - Parent</p>
+            </div>
+            <div class="testimonial">
+                <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"My kids are excited to learn about their faith every day thanks to Alifba. Highly recommended!" - Ahmed</p>
+            </div>
+            <div class="testimonial">
+               <img src="file:///Users/rimshad/Desktop/Alifba/website/images/star.png" alt="5 Star Rating">
+                <p>"The interactive games and quizzes are a hit with my kids. They are learning so much!" - Fatima</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="download">
+        <h2 class="section-title">Launching soon</h2>
+        <p>We are working really hard to get alifba accessible for everyone, will be available in playstore and appstore soon, Inshallah</p>
+    </section>
+    <section id="contact">
+        <h2 class="section-title">Join the waitlist</h2>
+       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoNkUGryvVl7Er5qrpKaFPgbh8vtdeiZoYVyZdX20XuBQsKA/viewform?embedded=true" width="640" height="689" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+    <footer>
+        <p>&copy; 2024 Alifba. All Rights Reserved.</p>
+        <p>Contact: hello@alifba.xyz | alifba.xyz</p>
+    </footer>
+</body>
+</html>
